@@ -2,14 +2,18 @@
 Chat Application with all functionality using MEAN Stack.
 
 
-Instructions to use:
+# Instructions to use:
+
 1.Before running the frontend on localhost:4200/,firstly run the backend server which runs on
 localhost:3000/ that can be run using node index.js on the backend folder.
+
 2.Now you can proceed further.
 
 Features of this chat app:
 
-User Management part:
+
+
+# User Management part:
 
 1.In signup part, given client side validation using angular 'pattern'.
 
@@ -22,7 +26,9 @@ sent for changing password.
 
 5.New password can be sent by clicking on link which is provided in mail.
 
-Group Chatting part:
+
+
+# Group Chatting part:
 
 1.All the active chats are listed on clicking to specific chat,user will be able to join a room.
 
@@ -30,6 +36,10 @@ Group Chatting part:
 
 3.In typing part,when any user of that room types every other will get notified that who is typing and also
 when typed user removes all typed text then evryuser will also get notified that no user is typing.
+
+
+
+
 
 ________________________________________________________________________________________________________________
 

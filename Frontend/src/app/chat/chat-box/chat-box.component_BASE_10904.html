@@ -1,0 +1,192 @@
+<div class="container">
+  <div class="row">
+
+    <div class="displayBlockMobile" style="position:fixed;width:100%;z-index:1;">
+
+      <div class="col-sm-12 p-0">
+
+        <nav class="navbar navbar-expand-md navbar-fixed navbar-dark bg-dark">
+
+          <a class="navbar-brand text-white">
+            {{userInfo.firstName}} {{userInfo.lastName}}
+            <i class="fa fa-circle online" *ngIf="disconnectedSocket == false"></i>
+            <i class="fa fa-circle offline" *ngIf="disconnectedSocket == true"></i>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+          </button>
+
+          <div class="collapse people-list navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="list">
+              <li class="p-2 typeOfChats">
+                Online Users:
+              </li>
+              <li class="clearfix cursorPointer" [ngClass]="{'activeChat': user.chatting == true}" 
+                *ngFor="let user of userList" (click)="userSelectedToChat(user.userId, user.name)">
+                <div class="userPresence" *ngIf="user.userId != userInfo.userId">
+                  <user-details [userFirstName]="user.name" [userLastName]="''" [userStatus]="'online'" [messageRead]="user.unread"></user-details>
+                </div>
+              </li>
+              
+            </ul>
+
+          </div>
+
+        </nav>
+
+      </div>
+
+    </div>
+
+    <div class="col-12 displayNoneMobile col-sm-4 col-md-4 people-list p-0" id="people-list">
+
+      <div class="p-3 text-white textCapitalize textCenter">
+        {{userInfo.firstName}} {{userInfo.lastName}}
+        <i class="fa fa-circle online" *ngIf="disconnectedSocket == false"></i>
+        <i class="fa fa-circle offline" *ngIf="disconnectedSocket == true"></i>
+        <br>
+        <br>
+        <button  (click)="logout()"  class="btn btn-info customButton">Logout</button>
+      </div>
+
+      <ul class="list">
+        <li class="p-2 typeOfChats">
+          Online Users:
+        </li>
+        <li class="clearfix cursorPointer" [ngClass]="{'activeChat': user.chatting == true}"
+          *ngFor="let user of userList" (click)="userSelectedToChat(user.userId, user.name,'online')">
+          <div class="userPresence" *ngIf="user.userId != userInfo.userId"  >
+            <user-details [userFirstName]="user.name" [userLastName]="''" [userStatus]="'online'" [messageRead]="user.unread"></user-details>
+          </div>
+        </li>
+       
+      </ul>
+      
+      <ul class="list">
+        <li class="p-2 typeOfChats">
+          Unread Messages:
+        </li>
+        <li class="clearfix cursorPointer" 
+         *ngFor="let unread of unreadOfflineList" (click)="userSelectedToChat(unread.userId, unread.name,'offline')">
+          <div class="userPresence">
+              <user-details [userFirstName]="unread.name" [userLastName]="''" [userStatus]="'offline'" [messageRead]="unread.unread"></user-details>
+            
+          </div>
+        </li>
+       
+      </ul>
+
+
+    </div>
+
+    
+
+    <div class="col-12 col-sm-8 col-md-8 chat" *ngIf="receiverId!=userInfo.userId;else mainpage">
+      <div class="chat-header clearfix mobileMenu">
+        <first-char [name]="receiverName" [userBg]="'green'" [userColor]="'white'"></first-char>
+
+        <div class="chat-about">
+          <div class="chat-with">Chat with {{receiverName}}</div>
+        </div>
+      </div>
+      <!-- end chat-header -->
+
+      <div  #scrollMe [scrollTop]="(scrollToChatTop)?0:scrollMe.scrollHeight" class="chat-history" *ngIf="receiverName">
+
+        <ul>
+          <li class="textCenter" *ngIf="receiverName">
+
+            <span  class="cursorPointer" (click)="loadEarlierPageOfChat()">Load Previous Chat</span>
+
+            <br>
+
+            <span *ngIf="loadingPreviousChat == true">Loading...</span>
+
+          </li>
+          <li class="clearfix" *ngFor="let message of messageList">
+            <div class="message-data" [ngClass]="{'align-right': message.senderId == userInfo.userId}">
+              <span class="message-data-time">{{message?.createdOn | date: 'medium' }}</span> &nbsp; &nbsp;
+              <span class="message-data-name floatLeft" *ngIf="message.senderId != userInfo.userId">
+                <i class="fa fa-circle online"></i> {{ message?.senderName }}</span>
+              <span class="message-data-name" *ngIf="message.senderId == userInfo.userId">{{ message?.senderName }}</span>
+              <i class="fa fa-circle me" *ngIf="message.senderId == userInfo.userId"></i>
+
+            </div>
+            <div class="message" [ngClass]="{'float-right other-message': message.senderId == userInfo.userId, 'my-message': message.senderId != userInfo.userId}">
+              {{message?.message}}
+            </div>
+          </li>
+
+
+        </ul>
+
+      </div>
+     
+      <!-- end chat-history -->
+
+      <div class="chat-message clearfix p-2" *ngIf="receiverName">
+        <textarea name="message-to-send" id="message-to-send" (keydown)="sendMessageUsingKeypress($event)" [(ngModel)]="messageText"
+          placeholder="Type your message" rows="3"></textarea>
+
+        <button (click)="sendMessage()">Send</button>
+
+      </div>
+      <!-- end chat-message -->
+
+    </div>
+    <!--MAIN PAGE-->
+    <ng-template #mainpage>
+      <div class="col-12 col-sm-8 col-md-8 chat">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+          <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+          </ul>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../../assets/images/slide1.jpg" alt="Los Angeles" width="1100" height="500">
+              <div class="carousel-caption">
+                <h3>Whatsapp On Web</h3>
+                
+              </div>   
+            </div>
+            <div class="carousel-item">
+              <img src="../../assets/images/slide3.png" alt="Chicago" width="1100" height="500">
+              <div class="carousel-caption">
+                <h3>Connecting with your loved ones!</h3>
+                
+              </div>   
+            </div>
+            <div class="carousel-item">
+              <img src="../../assets/images/slide2.png" alt="New York" width="1100" height="500">
+              <div class="carousel-caption">
+                <h3>Checkout!Someone messaged you</h3>
+                
+              </div>   
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+
+
+      </div>
+  </ng-template>
+  </div>
+  <!-- end chat -->
+
+</div>
+<!-- end container -->
+
+
+

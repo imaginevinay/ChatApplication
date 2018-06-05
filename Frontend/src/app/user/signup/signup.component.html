@@ -1,0 +1,138 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+  <a class="navbar-brand" href="/">My Chat</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+
+        <a class="nav-link" id="my-link" (click)="goToSignIn()">Sign-In</a>
+
+      </li>
+
+    </ul>
+
+  </div>
+
+</nav>
+
+<div class="row p-0 m-0">
+
+  <div class="col-sm"></div>
+
+  <div class="col-sm p-5">
+
+    <h2 class="form-signin-heading">Sign Up To Start Chat</h2>
+
+    <br>
+    <form #signUp="ngForm" (ngSubmit)="signUpFunction()">
+      <span>FirstName: </span>
+
+      <label for="inputFirstName" class="sr-only">FirstName</label>
+
+      <input type="text" #first="ngModel" pattern="^[A-Z][A-za-z ]+$" minlength="2" id="inputFirstName" name="firstName" class="form-control"
+        [(ngModel)]="firstName" placeholder="FirstName" required autofocus>
+
+      <br>
+      <div [hidden]="first.pristine || first.valid" class="alert alert-danger">
+        <div *ngIf="first.errors?.pattern">
+          First name should only start with Capital and contain only letters !
+          <div *ngIf="first.errors?.minlength">
+            First Name should contain mimimum 2 letters!
+          </div>
+        </div>
+        <div *ngIf="first.errors?.required">
+          First Name is required!
+        </div>
+
+      </div>
+
+      <span>LastName: </span>
+
+      <label for="inputLastName" class="sr-only">LastName</label>
+
+      <input type="text" #last="ngModel" pattern="^[A-Z][A-za-z ]+$" minlength="2" id="inputLastName" name="lastName" class="form-control"
+        [(ngModel)]="lastName" placeholder="LastName" required>
+
+      <br>
+      <div [hidden]="last.pristine || last.valid" class="alert alert-danger">
+        <div *ngIf="last.errors?.pattern">
+          Last name should only start with Capital and contain only letters !
+          <div *ngIf="last.errors?.minlength">
+            Last Name should contain mimimum 2 letters!
+          </div>
+        </div>
+        <div *ngIf="last.errors?.required">
+          Last Name is required!
+        </div>
+
+      </div>
+      <span>Mobile: </span>
+
+      <label for="inputMobile" class="sr-only">Mobile</label>
+
+      <input type="number" #mobileNum="ngModel" pattern="^\d{10}$" id="inputMobile" class="form-control" name="mobile" [(ngModel)]="mobile"
+        placeholder="Mobile" required>
+
+      <br>
+      <div [hidden]="mobileNum.valid || mobileNum.pristine" class="alert alert-danger">
+        <div *ngIf="mobileNum.errors?.pattern">
+          Mobile Number should only start contain only 10 digits!
+
+        </div>
+        <div *ngIf="mobileNum.errors?.required">
+          Mobile Number is required!
+        </div>
+      </div>
+      <span>Email: </span>
+
+      <label for="inputEmail" class="sr-only">Email address</label>
+
+      <input type="email" #emailId="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" id="inputEmail" class="form-control"
+        name="emailId" [(ngModel)]="email" placeholder="Email address" required>
+
+      <br>
+      <div [hidden]="emailId.valid || emailId.pristine" class="alert alert-danger">
+        <div *ngIf="emailId.errors?.pattern">
+          Email is invalid!
+
+        </div>
+        <div *ngIf="emailId.errors?.required">
+          Email is required!
+        </div>
+      </div>
+      <span>Password: </span>
+
+      <label for="inputPassword" class="sr-only">Password</label>
+
+      <input type="password" #pass="ngModel" pattern="^[A-Z]\w{7,}$" id="inputPassword" class="form-control" name="pass" [(ngModel)]="password"
+        placeholder="Password" required>
+
+      <br>
+      <div [hidden]="pass.valid || pass.pristine" class="alert alert-danger">
+        <div *ngIf="pass.errors?.pattern">
+          Password should contain only characters,numeric digits, underscore and start with capital!
+
+        </div>
+        <div *ngIf="pass.errors?.required">
+          Password is required!
+        </div>
+      </div>
+
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!signUp.form.valid">Sign Up</button>
+    </form>
+  </div>
+
+  <div class="col-sm"></div>
+
+</div>

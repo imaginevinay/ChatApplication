@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from chatapi.edwisor.com/eventDoc/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 May 2018 07:42:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Events</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <!-- <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
+    <style>
+    /* Custom Stylesheet */
+
+    .icon-block {
+        padding: 0 15px;
+    }
+
+    .icon-block .material-icons {
+        font-size: inherit;
+    }
+    </style>
+</head>
+
+<body>
+   
+    <div class="section no-pad-bot" style="margin-bottom: 0px" id="index-banner">
+        <div class="container" style="width: 80%">
+          <p style="font-size: 2em; font-weight: 540; text-align: center">Events documentation</p>
+            <div class="row">
+
+                <div class="col hide-on-small-only m3 l2">
+                    <ul class="section table-of-contents" style="position: fixed">
+                        <li><a href="#listen" style="color: #03a9f4; font-size: 1.2em; font-weight: bold">Listen</a></li>
+                        <li><a href="#verifyUser">verifyUser</a></li>
+                        <li><a href="#usersList">online-user-list</a></li>
+						 <li><a href="#setJoinList">setJoinedRoom</a></li>
+                      
+                        <li><a href="#receiveMsg">receiveMsg</a></li>
+                        <li><a href="#user-typing">UserTyping</a></li>
+                    
+                        <li><a href="#emit" style="color: #03a9f4; font-size: 1.2em; font-weight: bold">Emit</a></li>
+                        <li><a href="#set-user">setUser</a></li>
+						<li><a href="#join-room">joinRoom</a></li>
+                        <li><a href="#room-msg">Room msg</a></li>
+                        <li><a href="#typing">Typing</a></li>
+						<li><a href="#disconnect">Disconnect</a></li>
+                    </ul>
+                </div>
+
+                <div class="col s12 m9 l10">
+
+                    <div id="listen" class="section scrollspy"></div>
+                    <h4>Events to listen</h4>
+
+                    <div id="verifyUser" class="section scrollspy">
+                        <h5>verifyUser event</h5>
+                        This event <span style="font-weight: 600">("verifyUser")</span> has to be listened on the user's end to verify user authentication.<br/>
+                        user will only be set as online user after verification of authentication token.<br/>
+                    </div>
+                    <div id="usersList" class="section scrollspy">
+                        <h5>online-user-list event</h5>
+                        This event <span style="font-weight: 600">("online-user-list")</span> has to be listened on the user's end to identify all available users that are currently online.<br/>
+                      
+                        The output will be an object, object has key as userId and value as full name.
+                    </div>
+					 <div id="setJoinList" class="section scrollspy">
+                        <h5>setJoinedRoom</h5>
+                        This event <span style="font-weight: 600">("setJoinedRoom")</span> has to be listened on the user's end to get teh data<br/>
+						who ahs joined a room like roomId,roomName and joined User name.This event is broadcast to everyone who has joined a room.
+                       <br/>
+                        The output will be an object, object has keys roomId,roomName,joinedUser with its values.
+                    </div>
+                 
+                    <div id="receiveMsg" class="section scrollspy">
+                        <h5>receiveMsg event</h5>
+                       
+                        This event <span style="font-weight: 600">("receiveMsg")</span> has to be listened to get all chats of that Room.The chat which is sent by user will<br/>
+						be listened to each member who has joined a room.<br/>
+                        Example output it as follows:<br/>
+                        <pre>
+                            {
+                                chatId: 'unique chat id',
+                                message: 'you message',
+                                createdOn: date, 
+                                receiverId: 'chatRoomId',
+                                receiverName: 'chatRoomName',
+                                senderId: 'userId of sender',
+                                senderName: 'full name of sender'
+                            }
+                        </pre>
+                    </div>
+                    <div id="user-typing" class="section scrollspy">
+                        <h5>userTyping event</h5>
+                        This event <span style="font-weight: 600">("userTyping")</span> has to be listened to get data who is typing.This data will be emitted to every<br/>
+						member of Room.
+                    </div>
+                  
+
+                    <div id="emit" class="section scrollspy"></div>
+                    <h4>Events to emit</h4>
+
+                    <div id="set-user" class="section scrollspy">
+                        <h5>setUser event</h5>
+                        This event <span style="font-weight: 600">("setUser")</span> has to be emitted when a user comes online.<br/>
+                        User can only be set as online only after verification of authentication token. Which you have pass here.
+                        The following data has to be emitted:<br/>
+                        authentication token
+                    </div>
+					<div id="join-room" class="section scrollspy">
+                        <h5>joinRoom event</h5>
+                        This event <span style="font-weight: 600">("joinRoom")</span> has to be emitted when a user wants to join a room.<br/>
+                      
+                        The following data has to be emitted for joining a specific room:<br/>
+                        Room Id<br/>
+						Room Name<br/>
+						The name of the person who wants to join.
+						
+                    </div>
+                    <div id="room-msg" class="section scrollspy">
+                        <h5>room-msg event</h5>
+                        This event <span style="font-weight: 600">("room-msg")</span> has to be emitted to identify an chat message that has been send to room.<br/>
+                        The following data has to be emitted:<br/>
+                        <pre>
+                            {
+                                senderName: 'John Doe',
+                                senderId: 'userId of sender',
+                                receiverName: chatRoomName',
+                                receiverId: 'chatRoomId of Room',
+                                message: 'your chat message',
+                                createdOn: date
+                            }
+                        </pre>
+                    </div>
+                    <div id="typing" class="section scrollspy">
+                        <h5>typing</h5>
+                        This event <span style="font-weight: 600">("typing")</span> has to be emitted, when the user start typing.<br/>
+                        The following data has to be emitted<br/>
+                        <pre>
+                           {
+                                                 typingUser:'User who is typing'
+						typingUserId:'UserId of typing user',
+						roomId:'ChatRoomId'
+			               }
+                        </pre>
+                    </div>
+					<div id="disconnect" class="section scrollspy">
+                        <h5>disconnection</h5>
+                        This event <span style="font-weight: 600">("disconnection")</span> has to be emitted, when the user gets disconnected(logout).<br/>
+                       
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<br/><br/><br/><br/>
+        <footer style="background-color: black; min-height: 3em">
+            <center style="color: white; margin: auto; padding-top: 1em;">COPYRIGHT &copy<span>2017</span> SARASWATI DIGITAL PVT. LTD.</center>
+        </footer>
+    <!--  Scripts-->
+    <script src="../../code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.scrollspy').scrollSpy();
+    });
+    </script>
+    <script>
+    (function($) {
+        $(function() {
+
+            $('.button-collapse').sideNav();
+
+        }); // end of document ready
+    })(jQuery); // end of jQuery name space
+    </script>
+</body>
+
+
+<!-- Mirrored from chatapi.edwisor.com/eventDoc/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 May 2018 07:42:06 GMT -->
+</html>

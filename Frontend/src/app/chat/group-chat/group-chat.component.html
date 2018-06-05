@@ -1,0 +1,107 @@
+<div class="row p-0 m-0">
+
+    <div class="col-sm"></div>
+     <!-- Create Group Design -->
+    <div *ngIf="groupChat" class="col-sm p-5">
+
+        <h2 class="form-signin-heading">Create Group</h2>
+        <form #Group="ngForm" (ngSubmit)="createGroup();Group.reset()">
+            <label for="inputName" class="sr-only">Group Name</label>
+
+            <input type="text" #nameGroup="ngModel" name="groupName" pattern="^[A-za-z0-9- ]+$" maxlength="50" class="form-control" id="inputName"
+                [(ngModel)]="groupName" placeholder="Group Name" required autofocus>
+
+            <br>
+            <div [hidden]="nameGroup.valid || nameGroup.pristine" class="alert alert-danger">
+                <div *ngIf="nameGroup.errors?.pattern">
+                    Group Name is invalid!
+                    <div *ngIf="nameGroup.errors?.maxlength">
+                        Group Name should contain maximum 65 letters!
+                    </div>
+                </div>
+                <div *ngIf="nameGroup.errors?.required">
+                    Group Name is required!
+                </div>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!Group.form.valid">Create</button>
+        </form>
+    </div>
+   <!-- Create group end -->
+
+   <!-- Edit Group Start -->
+    <div *ngIf="editChat" class="col-sm p-5">
+
+        <h2 class="form-signin-heading">Edit Group</h2>
+        <form #edit="ngForm" (ngSubmit)="editGroup();edit.reset()">
+            <label for="inputName" class="sr-only">Group Name</label>
+
+            <input type="text" #nameGroup="ngModel" name="groupName" pattern="^[A-za-z0-9- ]+$" maxlength="50" class="form-control" id="inputName"
+                [(ngModel)]="groupName" placeholder="Group Name" required autofocus>
+
+            <br>
+            <div [hidden]="nameGroup.valid || nameGroup.pristine" class="alert alert-danger">
+                <div *ngIf="nameGroup.errors?.pattern">
+                    Group Name is invalid!
+                    <div *ngIf="nameGroup.errors?.maxlength">
+                        Group Name should contain maximum 65 letters!
+                    </div>
+                </div>
+                <div *ngIf="nameGroup.errors?.required">
+                    Group Name is required!
+                </div>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!edit.form.valid">Edit</button>
+        </form>
+    </div>
+
+    <!-- Delete Chat Design start -->
+    <div *ngIf="deleteChat" class="col-sm p-5">
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <img src="https://2.bp.blogspot.com/-6P21sLS-QnU/VQl0hIGvezI/AAAAAAAAcG0/kNr8WfxDDMY/s280/6.jpg" style="width:102vmin;height:52vmin"
+                    class="img-fluid d-block mx-auto">
+            </div>
+        </div>
+    </div>
+
+    <!-- Mark as Close Start -->
+    <div *ngIf="markAsClose" class="col-sm p-5">
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <img src="https://loopnewslive.blob.core.windows.net/liveimage/sites/default/files/2018-02/rkxZfgVES9.jpg" style="width:102vmin;height:52vmin"
+                    class="img-fluid d-block mx-auto">
+            </div>
+        </div>
+    </div>
+    <!-- Share email design start -->
+    <div *ngIf="share" class="col-sm p-5">
+
+        <h2 class="form-signin-heading">Share Email</h2>
+        <form #share="ngForm" (ngSubmit)="shareLink();share.reset()">
+            <label for="inputName" class="sr-only">Enter Email</label>
+
+            <input type="text" #emailId="ngModel" name="groupName" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" class="form-control"
+                id="inputName" [(ngModel)]="email" placeholder="Enter Email" required autofocus>
+
+            <br>
+            <div [hidden]="emailId.valid || emailId.pristine" class="alert alert-danger">
+                <div *ngIf="emailId.errors?.pattern">
+                    Email is invalid!
+
+                </div>
+                <div *ngIf="emailId.errors?.required">
+                    Email is required!
+                </div>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!share.form.valid">Share</button>
+        </form>
+    </div>
+
+    <div class="col-sm"></div>
+
+</div>

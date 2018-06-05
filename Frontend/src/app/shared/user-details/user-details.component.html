@@ -1,0 +1,19 @@
+<div class="crop" [style.color]="'white'" [style.background]="'blue'">
+  {{firstChar}}
+</div>
+<div class="about">
+  <div class="name">{{userFirstName}} {{userLastName}}
+    <i *ngIf="messageRead>0" class="fa fa-circle warning">{{messageRead}}</i>
+  </div>
+  
+  <div *ngIf="list=='chatRoom'" style="text-align:right">
+    <span [routerLink]="['/group-chat',roomId,'delete']"><i class="fa fa-trash-o mr-2" title="Delete"></i></span>
+    <span [routerLink]="['/group-chat',roomId]"><i class="fa fa-edit mr-2" title="Edit"></i></span>
+    <span [routerLink]="['/group-chat',roomId,roomName]"><i class="fa fa-share-alt mr-2" title="Share"></i></span>
+    <span [routerLink]="['/group-chat',roomId,'close']"><i class="fa fa-close mr-2" title="Mark as Close"></i></span>
+  </div>
+  <span *ngIf="list!='chatRoom'"><br/></span>
+  <div class="status">
+    <i class="fa fa-circle" [ngClass]="userStatus" style="font-size:2vmin"></i> {{userStatus}}
+  </div>
+</div>

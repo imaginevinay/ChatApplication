@@ -16,17 +16,22 @@ var nodemailer = require('nodemailer');
 eventEmitter.on('WelcomeEmail',(data)=>{
     console.log(data)
     
- var transporter = nodemailer.createTransport({
-     service: 'Gmail',
-     auth: {
-            user: 'saknigam12@gmail.com',
-            pass: 'sakanchal1295@'
+    let transporter = nodemailer.createTransport({
+        host: 'in-v3.mailjet.com',
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: '3f95879a671b565f0abbea1a7f2f79f1', // generated ethereal user
+            pass:'bd05b13b6fa36c8441f975297ad6b9cc' // generated ethereal password
+        },
+        tls : {
+            rejectUnauthorised : false
         }
     });
 
 
 const mailOptions = {
- from: 'saknigam12@email.com', // sender address
+ from: '"Edwisor Chat App" <vinay.varshney28@gmail.com>', // sender address
  to: data.email, // list of receivers
  subject: 'Please confirm your Email account', // Subject line
  text: `Hi! ${data.name},

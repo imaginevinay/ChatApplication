@@ -10,7 +10,7 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 @Injectable()
 export class AppService {
-  private baseUrl = "http://groupchatapp.webdeveloperjourney.xyz/api/v1";
+  private baseUrl = "http://localhost:3000/api/v1";
   constructor(public http: HttpClient) { }
 
   //Method to signup functionality
@@ -29,14 +29,7 @@ export class AppService {
 
   //method for login functionality
 
-  //Method to verify email
-  public verifyEmail = (data): Observable<any> => {
-    const param = new HttpParams()
-      .set('hash', data)
-
-    return this.http.put(`${this.baseUrl}/users/verifyEmail`, param);
-  }
-  //end method
+  
 
   public logIn = (data): Observable<any> => {
     const param = new HttpParams()
@@ -44,7 +37,7 @@ export class AppService {
       .set('password', data.password)
 
     return this.http.post(`${this.baseUrl}/users/login`, param);
-  }//end
+  }//end login
 
   //forgot password
   public forgotPassword = (email): Observable<any> => {

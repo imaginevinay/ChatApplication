@@ -35,7 +35,7 @@
         <form #signIn="ngForm" (ngSubmit)="logInFunction();signIn.reset()">
             <label for="inputEmail" class="sr-only">Email address</label>
 
-            <input type="email" #emailId="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  name="email" id="inputEmail" class="form-control" [(ngModel)]="email" placeholder="Email address"
+            <input type="email" #emailId="ngModel"  name="email" id="inputEmail" class="form-control" [(ngModel)]="email" placeholder="Email address"
                 required autofocus>
 
             <br>

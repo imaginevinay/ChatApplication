@@ -96,55 +96,7 @@ module.exports.setRouter = (app) => {
     */
 
     
-   app.put(`${baseUrl}/verifyEmail`, userController.verifyEmail);
-    /**
-     * @apiGroup users
-     * @apiVersion  1.0.0
-     * @api {put} /api/v1/users/verifyEmail api for verifying Email.
-     *
-     * @apiParam {string} hash hash which is provided in email link. (body params) (required)
-     * 
-     *
-     * @apiSuccess {object} myResponse shows error status, message, http status code, result.
-     * 
-     * @apiSuccessExample {json} Success-Response:
-          {
-    "error": false,
-    "message": "User Verified Successfully",
-    "status": 200,
-    "data": {
-        
-        "userId": "rkWlVp1RM",
-        "firstName": "Anchal",
-        "lastName": "Nigam",
-        "email": "anchalnigamm@gmail.com",
-        "mobileNumber": 9026224948,
-        "hash": "8ug67ar1zoyrndloe73ztai17xa4jafi",
-        "active": true,      
-        "createdOn": "2018-05-09T00:42:17.000Z",
-        "_id": "5af243e929485a1718f18c53",
-        "__v": 0
-    
-        
-    }
-}
-  
-     @apiErrorExample {json} Error-Response:
-    *
-    * {
-    "error": true,
-    "message": "Hash is missing",
-    "status": 403,
-    "data": null
-}
-{
-    "error": true,
-    "message": "User Not found",
-    "status": 404,
-    "data": null
-}
-    */
-
+   
 
    
    app.post(`${baseUrl}/forgotPassword`,userController.forgotPassword);

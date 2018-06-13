@@ -1,4 +1,4 @@
-define({ "api": [
+[
   {
     "group": "Chat",
     "version": "1.0.0",
@@ -33,7 +33,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "        {\n    \"error\": false,\n    \"message\": \"All Chats Listed\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"senderName\": \"Sakshi Nigam\",\n            \"senderId\": \"r1uZaizRG\",\n            \"receiverName\": \"Testing Group1\",\n            \"receiverId\": \"rJlamPICz\",\n            \"message\": \"hello evry1!\",\n            \"chatId\": \"Sk6UCqURG\",\n            \"createdOn\": \"2018-05-14T05:27:48.903Z\",\n            \"modifiedOn\": \"2018-05-14T05:27:51.034Z\"\n        },\n        {\n            \"senderName\": \"Anchal Nigam\",\n            \"senderId\": \"r1_rDWlRM\",\n            \"receiverName\": \"Edit Testing \",\n            \"receiverId\": \"rJlamPICz\",\n            \"message\": \"kse ho??\",\n            \"chatId\": \"ryqKAqUCf\",\n            \"createdOn\": \"2018-05-14T05:28:34.331Z\",\n            \"modifiedOn\": \"2018-05-14T05:28:36.344Z\"\n        }\n    ]\n}",
+          "content": "        {\n    \"error\": false,\n    \"message\": \"All Chats Listed\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"senderName\": \"Anish Varshney\",\n            \"senderId\": \"r1uZaizRG\",\n            \"receiverName\": \"Testing Group1\",\n            \"receiverId\": \"rJlamPICz\",\n            \"message\": \"hello evry1!\",\n            \"chatId\": \"Sk6UCqURG\",\n            \"createdOn\": \"2018-05-14T05:27:48.903Z\",\n            \"modifiedOn\": \"2018-05-14T05:27:51.034Z\"\n        },\n        {\n            \"senderName\": \"Vinay Varshney\",\n            \"senderId\": \"r1_rDWlRM\",\n            \"receiverName\": \"Edit Testing \",\n            \"receiverId\": \"rJlamPICz\",\n            \"message\": \"kse ho??\",\n            \"chatId\": \"ryqKAqUCf\",\n            \"createdOn\": \"2018-05-14T05:28:34.331Z\",\n            \"modifiedOn\": \"2018-05-14T05:28:36.344Z\"\n        }\n    ]\n}",
           "type": "json"
         }
       ]
@@ -47,7 +47,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "routes/chat.js",
+    "filename": "app/routes/chat.js",
     "groupTitle": "Chat",
     "name": "GetApiV1UsersChatGetForRoom"
   },
@@ -85,7 +85,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "        {\n    \"error\": false,\n    \"message\": \"All Group Chats Details Found\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"chatRoomId\": \"rJlamPICz\",\n            \"chatRoomName\": \"Edit Testing \",\n            \"creator\": \"Anchal Nigam\",\n            \"status\": true,\n            \"createdOn\": \"2018-05-14T01:17:43.000Z\",\n            \"ModifiedOn\": \"2018-05-14T01:17:43.000Z\"\n        },\n        {\n            \"chatRoomId\": \"BypaQDLCf\",\n            \"chatRoomName\": \"Testing Group2\",\n            \"creator\": \"Anchal Nigam\",\n            \"status\": true,\n            \"createdOn\": \"2018-05-14T01:17:56.000Z\",\n            \"ModifiedOn\": \"2018-05-14T01:17:56.000Z\"\n        }\n        ]\n}",
+          "content": "        {\n    \"error\": false,\n    \"message\": \"All Group Chats Details Found\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"chatRoomId\": \"rJlamPICz\",\n            \"chatRoomName\": \"Edit Testing \",\n            \"creator\": \"Vinay Varshney\",\n            \"status\": true,\n            \"createdOn\": \"2018-05-14T01:17:43.000Z\",\n            \"ModifiedOn\": \"2018-05-14T01:17:43.000Z\"\n        },\n        {\n            \"chatRoomId\": \"BypaQDLCf\",\n            \"chatRoomName\": \"Testing Group2\",\n            \"creator\": \"Vinay Varshney\",\n            \"status\": true,\n            \"createdOn\": \"2018-05-14T01:17:56.000Z\",\n            \"ModifiedOn\": \"2018-05-14T01:17:56.000Z\"\n        }\n        ]\n}",
           "type": "json"
         }
       ]
@@ -99,7 +99,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "routes/chat.js",
+    "filename": "app/routes/chat.js",
     "groupTitle": "Chat",
     "name": "GetApiV1UsersGetchatrooms"
   },
@@ -151,7 +151,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "routes/chat.js",
+    "filename": "app/routes/chat.js",
     "groupTitle": "Chat",
     "name": "PostApiV1UsersChatroomidDeletegroup"
   },
@@ -203,7 +203,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "        {\n    \"error\": false,\n    \"message\": \"Chat Room created\",\n    \"status\": 200,\n    \"data\": {\n        \"chatRoomId\": \"HyoGijIAM\",\n        \"chatRoomName\": \"FunTime\",\n        \"creator\": \"Anchal Nigam\",\n        \"status\": true,\n        \"createdOn\": \"2018-05-14T06:22:10.000Z\",\n        \"ModifiedOn\": \"2018-05-14T06:22:10.000Z\",\n        \"_id\": \"5af92b12da5e940688878b61\",\n        \"__v\": 0\n    }\n}",
+          "content": "        {\n    \"error\": false,\n    \"message\": \"Chat Room created\",\n    \"status\": 200,\n    \"data\": {\n        \"chatRoomId\": \"HyoGijIAM\",\n        \"chatRoomName\": \"FunTime\",\n        \"creator\": \"Vinay Varshney\",\n        \"status\": true,\n        \"createdOn\": \"2018-05-14T06:22:10.000Z\",\n        \"ModifiedOn\": \"2018-05-14T06:22:10.000Z\",\n        \"_id\": \"5af92b12da5e940688878b61\",\n        \"__v\": 0\n    }\n}",
           "type": "json"
         }
       ]
@@ -217,7 +217,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "routes/chat.js",
+    "filename": "app/routes/chat.js",
     "groupTitle": "Chat",
     "name": "PostApiV1UsersCreategroup"
   },
@@ -290,7 +290,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "routes/chat.js",
+    "filename": "app/routes/chat.js",
     "groupTitle": "Chat",
     "name": "PostApiV1UsersShare"
   },
@@ -342,7 +342,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "          {\n    \"error\": false,\n    \"message\": \"Updated successfully!\",\n    \"status\": 200,\n    \"data\": {\n        \"chatRoomId\": \"By5izz8CG\",\n        \"chatRoomName\": \"Edit Group\",\n        \"creator\": \"Anchal Nigam\",\n        \"status\": false,\n        \"createdOn\": \"2018-05-13T19:31:45.000Z\",\n        \"ModifiedOn\": \"2018-05-13T19:31:45.000Z\",\n        \"_id\": \"5af892a19162322b9828e0cb\",\n        \"__v\": 0\n    }\n}",
+          "content": "          {\n    \"error\": false,\n    \"message\": \"Updated successfully!\",\n    \"status\": 200,\n    \"data\": {\n        \"chatRoomId\": \"By5izz8CG\",\n        \"chatRoomName\": \"Edit Group\",\n        \"creator\": \"Vinay Varshney\",\n        \"status\": false,\n        \"createdOn\": \"2018-05-13T19:31:45.000Z\",\n        \"ModifiedOn\": \"2018-05-13T19:31:45.000Z\",\n        \"_id\": \"5af892a19162322b9828e0cb\",\n        \"__v\": 0\n    }\n}",
           "type": "json"
         }
       ]
@@ -356,7 +356,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "routes/chat.js",
+    "filename": "app/routes/chat.js",
     "groupTitle": "Chat",
     "name": "PutApiV1UsersChatroomidEditgroup"
   },
@@ -408,7 +408,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "routes/chat.js",
+    "filename": "app/routes/chat.js",
     "groupTitle": "Chat",
     "name": "PutApiV1UsersChatroomidMarkasclose"
   },
@@ -460,7 +460,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "routes/user.js",
+    "filename": "app/routes/user.js",
     "groupTitle": "users",
     "name": "PostApiV1UsersForgotpassword"
   },
@@ -505,7 +505,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "          {\n    \"error\": false,\n    \"message\": \"Login Successful\",\n    \"status\": 200,\n    \"data\": {\n        \"authToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RpZCI6IkhKUkJHMGxSZiIsImlhdCI6MTUyNTg5NTc1MDM4OSwiZXhwIjoxNTI1OTgyMTUwLCJzdWIiOiJhdXRoVG9rZW4iLCJpc3MiOiJlZHdpc29yQ2hhdCIsImRhdGEiOnsidXNlcklkIjoicjFfckRXbFJNIiwiZmlyc3ROYW1lIjoiQW5jaGFsIiwibGFzdE5hbWUiOiJOaWdhbSIsImVtYWlsIjoiYW5jaGFsbmlnYW1tQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6OTAyNjIyNDk0OCwiaGFzaCI6IjRxYnhva2o5amQ4NDB1N2wzNmRpd3MwMzNkYmI4ZmJyN3EiLCJhY3RpdmUiOnRydWV9fQ.uTIKh4NeWvWPR0ImzA7Ad-JpJGIiMesjjXYJjh0TWoo\",\n        \"userDetails\": {\n            \"userId\": \"r1_rDWlRM\",\n            \"firstName\": \"Anchal\",\n            \"lastName\": \"Nigam\",\n            \"email\": \"anchalnigamm@gmail.com\",\n            \"mobileNumber\": 9026224948,\n            \"hash\": \"4qbxokj9jd840u7l36diws033dbb8fbr7q\",\n            \"active\": true\n        }\n    }\n}",
+          "content": "          {\n    \"error\": false,\n    \"message\": \"Login Successful\",\n    \"status\": 200,\n    \"data\": {\n        \"authToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RpZCI6IkhKUkJHMGxSZiIsImlhdCI6MTUyNTg5NTc1MDM4OSwiZXhwIjoxNTI1OTgyMTUwLCJzdWIiOiJhdXRoVG9rZW4iLCJpc3MiOiJlZHdpc29yQ2hhdCIsImRhdGEiOnsidXNlcklkIjoicjFfckRXbFJNIiwiZmlyc3ROYW1lIjoiQW5jaGFsIiwibGFzdE5hbWUiOiJOaWdhbSIsImVtYWlsIjoiYW5jaGFsbmlnYW1tQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6OTAyNjIyNDk0OCwiaGFzaCI6IjRxYnhva2o5amQ4NDB1N2wzNmRpd3MwMzNkYmI4ZmJyN3EiLCJhY3RpdmUiOnRydWV9fQ.uTIKh4NeWvWPR0ImzA7Ad-JpJGIiMesjjXYJjh0TWoo\",\n        \"userDetails\": {\n            \"userId\": \"r1_rDWlRM\",\n            \"firstName\": \"Vinay\",\n            \"lastName\": \"Varshney\",\n            \"email\": \"vinayvarshney@gmail.com\",\n            \"mobileNumber\": 9026224948,\n            \"hash\": \"4qbxokj9jd840u7l36diws033dbb8fbr7q\",\n            \"active\": true\n        }\n    }\n}",
           "type": "json"
         }
       ]
@@ -519,7 +519,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "routes/user.js",
+    "filename": "app/routes/user.js",
     "groupTitle": "users",
     "name": "PostApiV1UsersLogin"
   },
@@ -571,7 +571,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "routes/user.js",
+    "filename": "app/routes/user.js",
     "groupTitle": "users",
     "name": "PostApiV1UsersLogout"
   },
@@ -637,12 +637,12 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "        {\n    \"error\": false,\n    \"message\": \"User created\",\n    \"status\": 200,\n    \"data\": {\n        \"userId\": \"rkWlVp1RM\",\n        \"firstName\": \"Anchal\",\n        \"lastName\": \"Nigam\",\n        \"email\": \"anchalnigamm@gmail.com\",\n        \"mobileNumber\": 9026224948,\n        \"hash\": \"8ug67ar1zoyrndloe73ztai17xa4jafi\",\n        \"active\": false,\n        \"createdOn\": \"2018-05-09T00:42:17.000Z\",\n        \"_id\": \"5af243e929485a1718f18c53\",\n        \"__v\": 0\n    }\n}",
+          "content": "        {\n    \"error\": false,\n    \"message\": \"User created\",\n    \"status\": 200,\n    \"data\": {\n        \"userId\": \"rkWlVp1RM\",\n        \"firstName\": \"Vinay\",\n        \"lastName\": \"Varshney\",\n        \"email\": \"vinayvarshney@gmail.com\",\n        \"mobileNumber\": 9026224948,\n        \"hash\": \"8ug67ar1zoyrndloe73ztai17xa4jafi\",\n        \"active\": false,\n        \"createdOn\": \"2018-05-09T00:42:17.000Z\",\n        \"_id\": \"5af243e929485a1718f18c53\",\n        \"__v\": 0\n    }\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "routes/user.js",
+    "filename": "app/routes/user.js",
     "groupTitle": "users",
     "name": "PostApiV1UsersSignup"
   },
@@ -687,7 +687,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "          {\n    \"error\": false,\n    \"message\": \"Password changed successfully!\",\n    \"status\": 200,\n    \"data\": {\n        \"userId\": \"r1_rDWlRM\",\n        \"firstName\": \"Anchal\",\n        \"lastName\": \"Nigam\",\n        \"password\": \"$2a$10$vbpX8zsNdvVwWDQyrO9KVux7N6HuQqnN2dgBRjD3MIb3AMYbukSQW\",\n        \"email\": \"anchalnigamm@gmail.com\",\n        \"mobileNumber\": 9026224948,\n        \"hash\": \"4qbxokj9jd840u7l36diws033dbb8fbr7q\",\n        \"active\": true,\n        \"createdOn\": \"2018-05-09T05:29:36.000Z\",\n        \"_id\": \"5af28740b7d71526585e5125\",\n        \"__v\": 0\n    }\n}",
+          "content": "          {\n    \"error\": false,\n    \"message\": \"Password changed successfully!\",\n    \"status\": 200,\n    \"data\": {\n        \"userId\": \"r1_rDWlRM\",\n        \"firstName\": \"Vinay\",\n        \"lastName\": \"Varshney\",\n        \"password\": \"$2a$10$vbpX8zsNdvVwWDQyrO9KVux7N6HuQqnN2dgBRjD3MIb3AMYbukSQW\",\n        \"email\": \"vinayvarshney@gmail.com\",\n        \"mobileNumber\": 9026224948,\n        \"hash\": \"4qbxokj9jd840u7l36diws033dbb8fbr7q\",\n        \"active\": true,\n        \"createdOn\": \"2018-05-09T05:29:36.000Z\",\n        \"_id\": \"5af28740b7d71526585e5125\",\n        \"__v\": 0\n    }\n}",
           "type": "json"
         }
       ]
@@ -701,60 +701,8 @@ define({ "api": [
         }
       ]
     },
-    "filename": "routes/user.js",
+    "filename": "app/routes/user.js",
     "groupTitle": "users",
     "name": "PutApiV1UsersResetpassword"
-  },
-  {
-    "group": "users",
-    "version": "1.0.0",
-    "type": "put",
-    "url": "/api/v1/users/verifyEmail",
-    "title": "api for verifying Email.",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "hash",
-            "description": "<p>hash which is provided in email link. (body params) (required)</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "object",
-            "optional": false,
-            "field": "myResponse",
-            "description": "<p>shows error status, message, http status code, result.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "          {\n    \"error\": false,\n    \"message\": \"User Verified Successfully\",\n    \"status\": 200,\n    \"data\": {\n        \n        \"userId\": \"rkWlVp1RM\",\n        \"firstName\": \"Anchal\",\n        \"lastName\": \"Nigam\",\n        \"email\": \"anchalnigamm@gmail.com\",\n        \"mobileNumber\": 9026224948,\n        \"hash\": \"8ug67ar1zoyrndloe73ztai17xa4jafi\",\n        \"active\": true,      \n        \"createdOn\": \"2018-05-09T00:42:17.000Z\",\n        \"_id\": \"5af243e929485a1718f18c53\",\n        \"__v\": 0\n    \n        \n    }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "\n{\n    \"error\": true,\n    \"message\": \"Hash is missing\",\n    \"status\": 403,\n    \"data\": null\n}\n{\n    \"error\": true,\n    \"message\": \"User Not found\",\n    \"status\": 404,\n    \"data\": null\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "routes/user.js",
-    "groupTitle": "users",
-    "name": "PutApiV1UsersVerifyemail"
   }
-] });
+]

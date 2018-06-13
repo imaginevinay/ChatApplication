@@ -193,7 +193,7 @@ export class GroupChatComponent implements OnInit {
       Response=>{
         if (Response.status === 200) {
 
-          this.toastr.success('Chat Room has been Marked as Close!');
+          this.toastr.success('Chat Room is Closed!');
           setTimeout(() => {
 
             this.router.navigate(['/chat']);

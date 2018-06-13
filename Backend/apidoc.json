@@ -1,7 +1,7 @@
 {
-    "name": "Edwisor Chat Application",
+    "name": "Edwisor Chat App",
     "version": "0.0.1",
     "description": "Documentation for the Edwisor Chat app",
-    "title": "Edwisor Chat APIs",
+    "title": "Edwisor Chat API",
     "url" : "http://localhost:3000"
   }

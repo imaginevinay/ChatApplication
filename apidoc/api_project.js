@@ -1,16 +1,16 @@
-{
-  "name": "Edwisor Chat Application",
+define({
+  "name": "Edwisor Chat App",
   "version": "0.0.1",
   "description": "Documentation for the Edwisor Chat app",
-  "title": "Edwisor Chat APIs",
+  "title": "Edwisor Chat API",
   "url": "http://localhost:3000",
   "sampleUrl": false,
   "defaultVersion": "0.0.0",
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2018-05-14T07:06:44.419Z",
+    "time": "2018-06-13T10:38:11.548Z",
     "url": "http://apidocjs.com",
     "version": "0.17.6"
   }
-}
+});

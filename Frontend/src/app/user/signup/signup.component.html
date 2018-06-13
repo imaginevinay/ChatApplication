@@ -39,17 +39,14 @@
 
       <label for="inputFirstName" class="sr-only">FirstName</label>
 
-      <input type="text" #first="ngModel" pattern="^[A-Z][A-za-z ]+$" minlength="2" id="inputFirstName" name="firstName" class="form-control"
+      <input type="text" #first="ngModel" id="inputFirstName" name="firstName" class="form-control"
         [(ngModel)]="firstName" placeholder="FirstName" required autofocus>
 
       <br>
       <div [hidden]="first.pristine || first.valid" class="alert alert-danger">
-        <div *ngIf="first.errors?.pattern">
-          First name should only start with Capital and contain only letters !
           <div *ngIf="first.errors?.minlength">
-            First Name should contain mimimum 2 letters!
+            First Name should contain mimimum 2 letters
           </div>
-        </div>
         <div *ngIf="first.errors?.required">
           First Name is required!
         </div>
@@ -60,17 +57,14 @@
 
       <label for="inputLastName" class="sr-only">LastName</label>
 
-      <input type="text" #last="ngModel" pattern="^[A-Z][A-za-z ]+$" minlength="2" id="inputLastName" name="lastName" class="form-control"
+      <input type="text" #last="ngModel" minlength="2" id="inputLastName" name="lastName" class="form-control"
         [(ngModel)]="lastName" placeholder="LastName" required>
 
       <br>
       <div [hidden]="last.pristine || last.valid" class="alert alert-danger">
-        <div *ngIf="last.errors?.pattern">
-          Last name should only start with Capital and contain only letters !
           <div *ngIf="last.errors?.minlength">
-            Last Name should contain mimimum 2 letters!
+            Last Name should contain mimimum 2 letters
           </div>
-        </div>
         <div *ngIf="last.errors?.required">
           Last Name is required!
         </div>
@@ -80,15 +74,11 @@
 
       <label for="inputMobile" class="sr-only">Mobile</label>
 
-      <input type="number" #mobileNum="ngModel" pattern="^\d{10}$" id="inputMobile" class="form-control" name="mobile" [(ngModel)]="mobile"
+      <input type="number" #mobileNum="ngModel" id="inputMobile" class="form-control" name="mobile" [(ngModel)]="mobile"
         placeholder="Mobile" required>
 
       <br>
       <div [hidden]="mobileNum.valid || mobileNum.pristine" class="alert alert-danger">
-        <div *ngIf="mobileNum.errors?.pattern">
-          Mobile Number should only start contain only 10 digits!
-
-        </div>
         <div *ngIf="mobileNum.errors?.required">
           Mobile Number is required!
         </div>
@@ -97,15 +87,11 @@
 
       <label for="inputEmail" class="sr-only">Email address</label>
 
-      <input type="email" #emailId="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" id="inputEmail" class="form-control"
+      <input type="email" #emailId="ngModel" id="inputEmail" class="form-control"
         name="emailId" [(ngModel)]="email" placeholder="Email address" required>
 
       <br>
       <div [hidden]="emailId.valid || emailId.pristine" class="alert alert-danger">
-        <div *ngIf="emailId.errors?.pattern">
-          Email is invalid!
-
-        </div>
         <div *ngIf="emailId.errors?.required">
           Email is required!
         </div>
@@ -114,15 +100,11 @@
 
       <label for="inputPassword" class="sr-only">Password</label>
 
-      <input type="password" #pass="ngModel" pattern="^[A-Z]\w{7,}$" id="inputPassword" class="form-control" name="pass" [(ngModel)]="password"
+      <input type="password" #pass="ngModel" id="inputPassword" class="form-control" name="pass" [(ngModel)]="password"
         placeholder="Password" required>
 
       <br>
       <div [hidden]="pass.valid || pass.pristine" class="alert alert-danger">
-        <div *ngIf="pass.errors?.pattern">
-          Password should contain only characters,numeric digits, underscore and start with capital!
-
-        </div>
         <div *ngIf="pass.errors?.required">
           Password is required!
         </div>

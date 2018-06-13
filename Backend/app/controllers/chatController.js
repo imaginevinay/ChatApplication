@@ -154,22 +154,27 @@ let getChats=(req,res)=>{
 
 //method to share a group link
 let shareLink=(req,res)=>{
-    var transporter = nodemailer.createTransport({
-        service: 'Gmail',
+    let transporter = nodemailer.createTransport({
+        host: 'in-v3.mailjet.com',
+        port: 587,
+        secure: false, // true for 465, false for other ports
         auth: {
-               user: 'saknigam12@gmail.com',
-               pass: 'sakanchal1295@'
-           }
-       });
+            user: '3f95879a671b565f0abbea1a7f2f79f1', // generated ethereal user
+            pass:'bd05b13b6fa36c8441f975297ad6b9cc' // generated ethereal password
+        },
+        tls : {
+            rejectUnauthorised : false
+        }
+    });
      
-   let secretKey="mychoiceypassword";
+   let secretKey="somerandomtext";
    let emailEncrypt=btoa(req.body.email+secretKey);
    
    const mailOptions = {
-    from: 'saknigam12@email.com', // sender address
+    from: '"Edwisor Chat App" <vinay.varshney28@gmail.com>', // sender address
     to: req.body.email, // list of receivers
     subject: 'Let\'s Chat', // Subject line
-    html: "<p>Hi!,<br/>Let\'s connect with each other via EdChat.<a href='http://localhost:4200/chat/"+req.body.chatRoomId+"/"+req.body.chatRoomName+"'>Click here</a> to Join!</p>"
+    html: "<p>Hi!,<br>Let\'s connect with each other via EdChat.<a href='http://localhost:4200/chat/"+req.body.chatRoomId+"/"+req.body.chatRoomName+"'>Click here</a> to Join!</p>"
    
    };
    console.log(mailOptions)

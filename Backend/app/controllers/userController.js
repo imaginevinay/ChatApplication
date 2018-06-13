@@ -185,19 +185,6 @@ let loginFunction = (req, res) => {
         });
     } //end validate password
 
-    //METHOD TO CHECK whether the user verify himself by link privided in email
-    let checkStatus=(retrievedUserDetails)=>{
-       return new Promise((resolve, reject) => {
-          if(retrievedUserDetails.active==false){
-            let apiResponse = response.generate(true, 'User has not Verified!', 400, null)
-            reject(apiResponse);
-          }
-          else{
-              resolve(retrievedUserDetails);
-          }
-
-       });
-    }//end 
 
     let generateToken = (userDetails) => {
         console.log("generate token");
@@ -271,7 +258,6 @@ let loginFunction = (req, res) => {
 
     findUser()
     .then(validatePassword)
-    .then(checkStatus)
     .then(generateToken)
     .then(saveToken)
     .then((resolve) => {
@@ -291,60 +277,28 @@ let loginFunction = (req, res) => {
 
 // end of the login function 
 
-//verify email function
-let verifyEmail=(req,res)=>{
-    if (check.isEmpty(req.body.hash)) {
-
-        console.log('Hash should be passed')
-        let apiResponse = response.generate(true, 'Hash is missing', 403, null)
-        res.send(apiResponse)
-    }
-    else{
-        let hash = { $set: { active: true } };;
-        UserModel.update({ 'hash': req.body.hash },hash, { multi: true })
-        .exec((err, result) => {
-            if (err) {
-
-                console.log('Error Occured.')
-                logger.error(`Error Occured : ${err}`, 'Database', 10)
-                let apiResponse = response.generate(true, 'Error Occured.', 500, null)
-                res.send(apiResponse)
-            } else if (check.isEmpty(result)) {
-
-                console.log('User Not Found.')
-                logger.error('User Not Found', 'userController: verifyEmail', 10)
-                let apiResponse = response.generate(true, 'User Not found', 404, null)
-                res.send(apiResponse)
-            } else {
-                console.log('User Verified Successfully')
-                logger.error('User Verified Successfully!', 'userController: verifyEmail', 10)
-                let apiResponse = response.generate(false, 'User Verified Successfully.', 200, result)
-                res.send(apiResponse)
-            }
-
-        });
-
-    }
-}
-//end verify email
-
 //forgot password function
 let forgotPassword=(req,res)=>{
-    var transporter = nodemailer.createTransport({
-        service: 'Gmail',
+    let transporter = nodemailer.createTransport({
+        host: 'in-v3.mailjet.com',
+        port: 587,
+        secure: false, // true for 465, false for other ports
         auth: {
-               user: 'saknigam12@gmail.com',
-               pass: 'sakanchal1295@'
-           }
-       });
+            user: '3f95879a671b565f0abbea1a7f2f79f1', // generated ethereal user
+            pass:'bd05b13b6fa36c8441f975297ad6b9cc' // generated ethereal password
+        },
+        tls : {
+            rejectUnauthorised : false
+        }
+    });
      
-   let secretKey="mychoiceypassword";
+   let secretKey="somerandomtext";
    let emailEncrypt=btoa(req.body.email+secretKey);
    const mailOptions = {
-    from: 'saknigam12@email.com', // sender address
+    from: '"Edwisor Chat App" <vinay.varshney28@gmail.com>', // sender address
     to: req.body.email, // list of receivers
     subject: 'Reset your password', // Subject line
-    html: "<p>Hi!,<br/>Please <a href='http://localhost:4200/reset/"+emailEncrypt+"'>Click here</a> to change your password!</p>"
+    html: "<p>Hi!,<br/>Please <a href='http://localhost:4200/reset/"+emailEncrypt+"'>Click here</a> to reset your password!</p>"
    
    };
    console.log(mailOptions)
@@ -569,7 +523,6 @@ module.exports = {
 
     signUpFunction: signUpFunction,
     loginFunction: loginFunction,
-    verifyEmail:verifyEmail,
     forgotPassword:forgotPassword,
     resetPassword:resetPassword,
     getAllUser:getAllUser,

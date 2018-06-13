@@ -8,17 +8,14 @@
         <form #Group="ngForm" (ngSubmit)="createGroup();Group.reset()">
             <label for="inputName" class="sr-only">Group Name</label>
 
-            <input type="text" #nameGroup="ngModel" name="groupName" pattern="^[A-za-z0-9- ]+$" maxlength="50" class="form-control" id="inputName"
+            <input type="text" #nameGroup="ngModel" name="groupName"  maxlength="50" class="form-control" id="inputName"
                 [(ngModel)]="groupName" placeholder="Group Name" required autofocus>
 
             <br>
             <div [hidden]="nameGroup.valid || nameGroup.pristine" class="alert alert-danger">
-                <div *ngIf="nameGroup.errors?.pattern">
-                    Group Name is invalid!
                     <div *ngIf="nameGroup.errors?.maxlength">
                         Group Name should contain maximum 65 letters!
                     </div>
-                </div>
                 <div *ngIf="nameGroup.errors?.required">
                     Group Name is required!
                 </div>
